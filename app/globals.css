@@ -1,26 +1,696 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --ink: #26332e;
+  --muted: #78827c;
+  --paper: #f7f7f2;
+  --green: #27483d;
+  --font-sans: var(--font-geist-sans);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  min-height: 100%;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.night-app {
+  min-height: 100vh;
+  padding: 0 36px 22px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(231, 233, 220, 0.55), transparent 35%),
+    var(--paper);
+}
+
+.page-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  height: 88px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #2e443a;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.7px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 12px;
+  background: #e7ece3;
+  color: #476451;
+}
+
+.brand-mark svg {
+  width: 22px;
+  height: 22px;
+}
+
+.header-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #55665d;
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.header-link span {
+  color: #8c9b90;
+  font-size: 17px;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 337px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 65px;
+  border-radius: 26px;
+  background: #253c38;
+  color: #faf9f2;
+  isolation: isolate;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: -165px;
+  right: 68px;
+  width: 460px;
+  height: 460px;
+  border: 1px solid rgba(222, 224, 185, 0.12);
+  border-radius: 50%;
+  content: "";
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #d1d9bd;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 1.75px;
+}
+
+.hero .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.hero .eyebrow span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c7d09d;
+}
+
+.hero h1 {
+  margin: 21px 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4.4vw, 52px);
+  font-weight: 400;
+  letter-spacing: -1.7px;
+  line-height: 1.08;
+}
+
+.hero-description {
+  max-width: 380px;
+  margin: 0;
+  color: #cad2cc;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.hero-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 23px;
+  margin-top: 25px;
+  padding: 0 17px;
+  border: 1px solid rgba(245, 246, 232, 0.28);
+  border-radius: 8px;
+  color: #f4f4e9;
+  font-size: 12px;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.hero-button:hover {
+  border-color: rgba(245, 246, 232, 0.58);
+  background: rgba(245, 246, 232, 0.08);
+}
+
+.moon-scene {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 430px;
+  height: 337px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.moon-orbit {
+  position: absolute;
+  top: 33px;
+  right: 42px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(224, 227, 199, 0.12);
+  border-radius: 50%;
+}
+
+.orbit-two {
+  top: 70px;
+  right: 79px;
+  width: 186px;
+  height: 186px;
+  border-color: rgba(224, 227, 199, 0.1);
+}
+
+.moon-shape {
+  position: absolute;
+  top: 88px;
+  right: 128px;
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  background: #d9d7ad;
+  box-shadow: 0 0 70px rgba(220, 219, 168, 0.16);
+}
+
+.moon-shape::after {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  width: 89px;
+  height: 89px;
+  border-radius: 50%;
+  background: #253c38;
+  content: "";
+}
+
+.scene-star {
+  position: absolute;
+  color: #e0dfbc;
+}
+
+.star-one {
+  top: 94px;
+  right: 88px;
+  font-size: 16px;
+}
+
+.star-two {
+  top: 163px;
+  right: 243px;
+  font-size: 20px;
+}
+
+.star-three {
+  top: 75px;
+  right: 239px;
+  font-size: 28px;
+}
+
+.scene-hill {
+  position: absolute;
+  right: -30px;
+  bottom: -107px;
+  width: 510px;
+  height: 195px;
+  border-radius: 50% 50% 0 0;
+  transform: rotate(-9deg);
+}
+
+.hill-back {
+  right: 37px;
+  bottom: -122px;
+  background: #334c44;
+}
+
+.hill-front {
+  right: -91px;
+  bottom: -146px;
+  background: #40594b;
+  transform: rotate(13deg);
+}
+
+.hero-note {
+  position: absolute;
+  right: 57px;
+  bottom: 29px;
+  z-index: 1;
+  color: #e1e4d2;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.9fr);
+  gap: 19px;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+.plan-card,
+.ritual-card {
+  border: 1px solid #e8e9e0;
+  border-radius: 18px;
+  background: rgba(255, 255, 251, 0.88);
+}
+
+.plan-card {
+  padding: 29px 31px 24px;
+  scroll-margin-top: 18px;
+}
+
+.card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-eyebrow {
+  color: #7b8a7a;
+}
+
+.card-heading h2,
+.ritual-card h2 {
+  margin: 9px 0 0;
+  color: #2b3d34;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: -0.45px;
+}
+
+.step-number {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #e2e7dd;
+  border-radius: 50%;
+  color: #7a8a7c;
+  font-size: 11px;
+}
+
+.card-intro {
+  max-width: 480px;
+  margin: 10px 0 22px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.time-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.time-field {
+  display: block;
+  min-width: 0;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #56665d;
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.input-wrap {
+  display: flex;
+  height: 46px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+  border: 1px solid #e1e5dd;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input-wrap:focus-within {
+  border-color: #82998a;
+  box-shadow: 0 0 0 3px rgba(130, 153, 138, 0.14);
+}
+
+.field-icon {
+  color: #728575;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.reminder-icon {
+  font-size: 18px;
+}
+
+.input-wrap input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #34473b;
+  font-size: 13px;
+}
+
+.input-wrap input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.56;
+}
+
+.save-button {
+  display: flex;
+  width: 100%;
+  min-height: 45px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 550;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.save-button:hover {
+  transform: translateY(-1px);
+  background: #1e3b31;
+}
+
+.save-button span {
+  font-size: 17px;
+}
+
+.form-message {
+  min-height: 17px;
+  margin: 10px 0 0;
+  color: #808a82;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.form-message-error {
+  color: #a4483d;
+}
+
+.saved-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 13px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  background: #f0f4ec;
+}
+
+.saved-check {
+  display: grid;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #dce9d9;
+  color: #42654c;
+  font-size: 11px;
+}
+
+.saved-summary p {
+  margin: 0;
+  color: #59695d;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.saved-summary strong {
+  color: #314b39;
+  font-weight: 650;
+}
+
+.ritual-card {
+  padding: 27px 26px 22px;
+  background: #eeefe7;
+}
+
+.ritual-topline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.ritual-icon {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid #d9dfd1;
+  border-radius: 8px;
+  color: #718a74;
+  font-size: 15px;
+}
+
+.ritual-label {
+  color: #7a8b7d;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 1.3px;
+}
+
+.ritual-card h2 {
+  max-width: 235px;
+  margin-top: 17px;
+  font-size: 23px;
+  line-height: 1.18;
+}
+
+.ritual-card > p {
+  margin: 9px 0 0;
+  color: #738077;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.ritual-divider {
+  height: 1px;
+  margin: 19px 0 15px;
+  background: #dfe2d8;
+}
+
+.ritual-list {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  color: #536358;
+  font-size: 11px;
+  list-style: none;
+}
+
+.ritual-list li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.ritual-list li span {
+  color: #95a092;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+}
+
+.ritual-card .ritual-footnote {
+  margin-top: 19px;
+  color: #8a958c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 19px 2px 0;
+  color: #8b938b;
+  font-size: 10px;
+}
+
+@media (max-width: 760px) {
+  .night-app {
+    padding: 0 20px 18px;
+  }
+
+  .site-header {
+    height: 72px;
+  }
+
+  .hero {
+    min-height: 345px;
+    padding: 38px 30px;
+  }
+
+  .hero-copy {
+    align-self: flex-start;
+  }
+
+  .hero h1 {
+    font-size: clamp(35px, 8vw, 47px);
+  }
+
+  .moon-scene {
+    top: 73px;
+    right: -143px;
+    opacity: 0.62;
+  }
+
+  .hero-note {
+    right: 28px;
+    bottom: 23px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ritual-card {
+    padding: 24px 26px;
+  }
+
+  .ritual-card h2 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .night-app {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .site-header {
+    height: 66px;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .brand-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .header-link {
+    gap: 5px;
+    font-size: 11px;
+  }
+
+  .hero {
+    min-height: 360px;
+    padding: 31px 23px;
+    border-radius: 19px;
+  }
+
+  .hero h1 {
+    margin-top: 18px;
+    font-size: 37px;
+  }
+
+  .hero-description {
+    max-width: 280px;
+    font-size: 12px;
+  }
+
+  .moon-scene {
+    top: 123px;
+    right: -183px;
+    opacity: 0.44;
+  }
+
+  .plan-card {
+    padding: 24px 19px 20px;
+  }
+
+  .card-heading h2 {
+    max-width: 260px;
+    font-size: 22px;
+  }
+
+  .time-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .ritual-card {
+    padding-right: 21px;
+    padding-left: 21px;
+  }
+
+  .page-footer {
+    gap: 12px;
+    font-size: 9px;
+  }
 }
