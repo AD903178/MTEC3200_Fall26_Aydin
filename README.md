@@ -1,5 +1,7 @@
 # Night Reset
 
+https://vercel.com/aydin19/mtec-3200-fall26-aydin
+
 Night Reset is a bedtime-planning app for people who want to wind down on time instead of losing track of the evening while gaming or scrolling. It is intended to provide a gentle reminder and help users notice their bedtime habits, not to block apps, websites, or games.
 
 ## Project status
