@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useSyncExternalStore, type FormEvent } from "react";
+import RainAudioControl from "../rain-audio-control";
 import ThemeToggle from "../theme-toggle";
 
 type CheckInStatus = "on-time" | "later" | "missed";
@@ -323,6 +324,7 @@ export default function CheckInPage() {
             <span>night reset</span>
           </Link>
           <div className="header-actions">
+            <RainAudioControl />
             <Link className="header-link" href="/#bedtime-plan">
               Your bedtime plan <span aria-hidden="true">↗</span>
             </Link>

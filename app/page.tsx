@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useSyncExternalStore, type FormEvent } from "react";
+import RainAudioControl from "./rain-audio-control";
 import ThemeToggle from "./theme-toggle";
 
 type BedtimePlan = {
@@ -160,6 +161,7 @@ export default function Home() {
             <span>night reset</span>
           </Link>
           <div className="header-actions">
+            <RainAudioControl />
             <Link className="header-link" href="/check-in">
               Tonight’s check-in <span aria-hidden="true">↗</span>
             </Link>
