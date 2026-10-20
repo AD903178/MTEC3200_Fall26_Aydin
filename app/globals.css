@@ -101,6 +101,59 @@ a {
   font-size: 17px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.theme-control {
+  position: relative;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid #dfe4db;
+  border-radius: 50%;
+  background: rgba(255, 255, 251, 0.7);
+  color: #50665a;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: #aebcaf;
+  background: #eef2ea;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #82998a;
+  outline-offset: 3px;
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-status {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 8px);
+  right: 0;
+  width: max-content;
+  max-width: 220px;
+  padding: 7px 9px;
+  border: 1px solid #e4c9c4;
+  border-radius: 6px;
+  background: #fff8f6;
+  color: #8c4036;
+  font-size: 10px;
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -1115,6 +1168,262 @@ a {
   gap: 6px;
 }
 
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e7eee8;
+  --muted: #aab8ae;
+  --paper: #151d1a;
+  --green: #527b66;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .night-app {
+  background-color: var(--paper);
+}
+
+html[data-theme="dark"] .night-app {
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(62, 78, 67, 0.22), transparent 35%);
+}
+
+html[data-theme="dark"] .brand {
+  color: #dce8dd;
+}
+
+html[data-theme="dark"] .brand-mark {
+  background: #2a3a31;
+  color: #b4c7b3;
+}
+
+html[data-theme="dark"] .header-link {
+  color: #bdc9bf;
+}
+
+html[data-theme="dark"] .header-link span {
+  color: #91a496;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  border-color: #46564b;
+  background: #202b25;
+  color: #e0e8d1;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+  border-color: #708674;
+  background: #2a3930;
+}
+
+html[data-theme="dark"] .theme-status {
+  border-color: #704c45;
+  background: #392925;
+  color: #f0b8aa;
+}
+
+html[data-theme="dark"] .plan-card,
+html[data-theme="dark"] .check-in-card {
+  border-color: #35433a;
+  background: rgba(31, 42, 35, 0.96);
+}
+
+html[data-theme="dark"] .ritual-card,
+html[data-theme="dark"] .history-card {
+  border-color: #3b493d;
+  background: #222e26;
+}
+
+html[data-theme="dark"] .card-heading h2,
+html[data-theme="dark"] .ritual-card h2,
+html[data-theme="dark"] .history-heading h2 {
+  color: #e0e9df;
+}
+
+html[data-theme="dark"] .card-eyebrow,
+html[data-theme="dark"] .ritual-label {
+  color: #9aaf9d;
+}
+
+html[data-theme="dark"] .card-intro,
+html[data-theme="dark"] .ritual-card > p {
+  color: #aab8ac;
+}
+
+html[data-theme="dark"] .step-number {
+  border-color: #46564a;
+  color: #a7b9a8;
+}
+
+html[data-theme="dark"] .field-label,
+html[data-theme="dark"] .note-label {
+  color: #c2cec3;
+}
+
+html[data-theme="dark"] .input-wrap,
+html[data-theme="dark"] .note-field textarea,
+html[data-theme="dark"] .status-option {
+  border-color: #46554a;
+  background: #18221c;
+  color: #e0e9e1;
+}
+
+html[data-theme="dark"] .input-wrap input,
+html[data-theme="dark"] .note-field textarea {
+  color: #e0e9e1;
+}
+
+html[data-theme="dark"] .field-icon {
+  color: #9ab29c;
+}
+
+html[data-theme="dark"] .input-wrap:focus-within,
+html[data-theme="dark"] .note-field textarea:focus {
+  border-color: #829d85;
+}
+
+html[data-theme="dark"] .save-button {
+  background: #527b66;
+}
+
+html[data-theme="dark"] .save-button:hover {
+  background: #608b73;
+}
+
+html[data-theme="dark"] .form-message,
+html[data-theme="dark"] .check-in-message {
+  color: #aebbb0;
+}
+
+html[data-theme="dark"] .form-message-error,
+html[data-theme="dark"] .plan-warning {
+  color: #eea69a;
+}
+
+html[data-theme="dark"] .saved-summary {
+  background: #293a2d;
+}
+
+html[data-theme="dark"] .saved-check {
+  background: #3a5640;
+  color: #c5dec1;
+}
+
+html[data-theme="dark"] .saved-summary p,
+html[data-theme="dark"] .ritual-list {
+  color: #c0cec1;
+}
+
+html[data-theme="dark"] .saved-summary strong {
+  color: #e0ebde;
+}
+
+html[data-theme="dark"] .ritual-icon,
+html[data-theme="dark"] .history-icon {
+  border-color: #465747;
+  color: #a3bda1;
+}
+
+html[data-theme="dark"] .ritual-divider,
+html[data-theme="dark"] .history-note {
+  border-color: #3d4b3f;
+}
+
+html[data-theme="dark"] .ritual-divider {
+  background-color: #3d4b3f;
+}
+
+html[data-theme="dark"] .ritual-list li span,
+html[data-theme="dark"] .ritual-card .ritual-footnote {
+  color: #9daf9e;
+}
+
+html[data-theme="dark"] .status-option:hover {
+  border-color: #718875;
+}
+
+html[data-theme="dark"] .status-option.selected {
+  border-color: #829d85;
+  background: #28392c;
+}
+
+html[data-theme="dark"] .status-copy strong {
+  color: #dce6dc;
+}
+
+html[data-theme="dark"] .status-copy > span,
+html[data-theme="dark"] .note-label span {
+  color: #a6b3a8;
+}
+
+html[data-theme="dark"] .on-time-symbol {
+  background: #304732;
+  color: #b7d2ac;
+}
+
+html[data-theme="dark"] .later-symbol {
+  background: #493f2b;
+  color: #dfc486;
+}
+
+html[data-theme="dark"] .missed-symbol {
+  background: #433832;
+  color: #d0b6a5;
+}
+
+html[data-theme="dark"] .status-option.selected .status-radio {
+  background: #18221c;
+}
+
+html[data-theme="dark"] .note-field textarea::placeholder {
+  color: #89998c;
+}
+
+html[data-theme="dark"] .delete-check-in {
+  color: #dfa399;
+}
+
+html[data-theme="dark"] .delete-check-in:hover {
+  color: #f1c1b8;
+}
+
+html[data-theme="dark"] .history-intro,
+html[data-theme="dark"] .history-day,
+html[data-theme="dark"] .history-empty p,
+html[data-theme="dark"] .history-note p,
+html[data-theme="dark"] .history-note-mark {
+  color: #a8b6a9;
+}
+
+html[data-theme="dark"] .bedtime-target {
+  border-color: #455447;
+  background: rgba(24, 34, 28, 0.75);
+}
+
+html[data-theme="dark"] .bedtime-target > span,
+html[data-theme="dark"] .bedtime-target small,
+html[data-theme="dark"] .history-entry-actions button {
+  color: #a6b6a6;
+}
+
+html[data-theme="dark"] .bedtime-target strong,
+html[data-theme="dark"] .history-entry-actions button:hover {
+  color: #d6e4d4;
+}
+
+html[data-theme="dark"] .history-status {
+  color: #c1cec2;
+}
+
+html[data-theme="dark"] .history-empty {
+  border-color: #4b5a4d;
+}
+
+html[data-theme="dark"] .history-empty > span {
+  color: #a2b79f;
+}
+
+html[data-theme="dark"] .page-footer {
+  color: #9ca99e;
+}
+
 @media (max-width: 760px) {
   .night-app {
     padding: 0 20px 18px;
@@ -1210,6 +1519,15 @@ a {
   .header-link {
     gap: 5px;
     font-size: 11px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .theme-toggle {
+    width: 33px;
+    height: 33px;
   }
 
   .hero {

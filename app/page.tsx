@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useSyncExternalStore, type FormEvent } from "react";
+import ThemeToggle from "./theme-toggle";
 
 type BedtimePlan = {
   bedtime: string;
@@ -158,9 +159,12 @@ export default function Home() {
             </span>
             <span>night reset</span>
           </Link>
-          <Link className="header-link" href="/check-in">
-            Tonight’s check-in <span aria-hidden="true">↗</span>
-          </Link>
+          <div className="header-actions">
+            <Link className="header-link" href="/check-in">
+              Tonight’s check-in <span aria-hidden="true">↗</span>
+            </Link>
+            <ThemeToggle />
+          </div>
         </header>
 
         <section className="hero" aria-labelledby="hero-heading">

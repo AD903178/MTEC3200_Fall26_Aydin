@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useSyncExternalStore, type FormEvent } from "react";
+import ThemeToggle from "../theme-toggle";
 
 type CheckInStatus = "on-time" | "later" | "missed";
 
@@ -321,9 +322,12 @@ export default function CheckInPage() {
             </span>
             <span>night reset</span>
           </Link>
-          <Link className="header-link" href="/#bedtime-plan">
-            Your bedtime plan <span aria-hidden="true">↗</span>
-          </Link>
+          <div className="header-actions">
+            <Link className="header-link" href="/#bedtime-plan">
+              Your bedtime plan <span aria-hidden="true">↗</span>
+            </Link>
+            <ThemeToggle />
+          </div>
         </header>
 
         <section className="check-in-hero" aria-labelledby="check-in-heading">
