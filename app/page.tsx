@@ -158,9 +158,9 @@ export default function Home() {
             </span>
             <span>night reset</span>
           </Link>
-          <a className="header-link" href="#bedtime-plan">
-            Your bedtime plan <span aria-hidden="true">↘</span>
-          </a>
+          <Link className="header-link" href="/check-in">
+            Tonight’s check-in <span aria-hidden="true">↗</span>
+          </Link>
         </header>
 
         <section className="hero" aria-labelledby="hero-heading">
